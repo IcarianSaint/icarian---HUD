@@ -1,23 +1,21 @@
 {
-  "name": "icarian-hud-mentra",
+  "name": "icarian-hud",
   "version": "1.0.1",
-  "private": true,
-  "description": "Tactical HUD + Live Media Player for Mentra AI Glasses",
+  "type": "module",
   "scripts": {
-    "start": "mentra dev",
-    "dev": "mentra dev",
-    "build": "mentra build",
-    "check": "node --check src/index.ts src/player.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "mentra-miniapp-cli dev",
+    "build": "tsc && mentra-miniapp-cli pack",
+    "pack": "mentra-miniapp-cli pack"
   },
   "dependencies": {
-    "@mentra/sdk": "^3.1.0"
+    "@mentra/miniapp": "^3.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@mentra/miniapp-cli": "^3.1.0",
+    "@mentra/miniapp-cli": "^3.1.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "typescript": "^5.0.0"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
