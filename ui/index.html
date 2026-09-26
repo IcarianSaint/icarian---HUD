@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070b12" />
+    <title>Icarian HUD</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="hud-shell">
+      <header class="topbar">
+        <div><span class="status-dot"></span><strong>ICARIAN</strong></div>
+        <time id="clock" aria-label="Current time">--:--</time>
+        <span class="connection">G1 PREVIEW</span>
+      </header>
+
+      <section class="hero" aria-labelledby="welcome-heading">
+        <p class="eyebrow">TACTICAL OVERLAY / ONLINE</p>
+        <h1 id="welcome-heading">Good evening, operator.</h1>
+        <p class="muted">Your next waypoint and essential alerts at a glance.</p>
+      </section>
+
+      <section class="grid" aria-label="HUD dashboard">
+        <article class="card weather-card">
+          <div class="card-heading"><span>WEATHER</span><span id="weather-location">LOCAL</span></div>
+          <strong class="temperature">72°</strong>
+          <p>Clear skies · Feels like 70°</p>
+          <div class="meter"><span style="width: 64%"></span></div>
+          <small>Humidity 42% · Wind 6 mph</small>
+        </article>
+
+        <article class="card nav-card">
+          <div class="card-heading"><span>NAVIGATION</span><span class="accent">ACTIVE</span></div>
+          <strong>Home</strong>
+          <p class="route">Turn right in <b>0.4 mi</b></p>
+          <div class="route-line"><span class="route-pip"></span><span></span><span class="route-pip"></span></div>
+          <small>ETA 18:42 · 12 min remaining</small>
+        </article>
+
+        <article class="card">
+          <div class="card-heading"><span>NEXT EVENT</span><span>CALENDAR</span></div>
+          <strong>Design review</strong>
+          <p>Today at 19:00 · Studio</p>
+          <small class="accent">In 24 minutes</small>
+        </article>
+
+        <article class="card notifications">
+          <div class="card-heading"><span>NOTIFICATIONS</span><span id="notification-count">2 NEW</span></div>
+          <p><span class="notification-icon">●</span> Package delivery arriving today</p>
+          <p><span class="notification-icon">●</span> Alex mentioned you in a message</p>
+        </article>
+      </section>
+
+      <section class="assistant" aria-label="Voice assistant">
+        <div class="assistant-copy"><span class="pulse"></span><span id="assistant-status">Say “Icarian” to begin</span></div>
+        <button id="listen" type="button">LISTEN</button>
+      </section>
+
+      <form id="command-form" class="command-form">
+        <label for="command">Preview command</label>
+        <div><input id="command" autocomplete="off" placeholder="Try: weather, navigate home, notifications" /><button>Send</button></div>
+      </form>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

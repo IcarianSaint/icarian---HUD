@@ -1,0 +1,14 @@
+{
+  "name": "icarian-hud",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Local preview and development scaffold for Icarian HUD.",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "dev": "node scripts/serve.js",
+    "check": "node --check background/index.js && node --check scripts/serve.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
