@@ -1,0 +1,45 @@
+.player-mode { background: radial-gradient(circle at 30% 20%, #1a2940 0, #070b12 50%); }
+.player-shell { width: min(960px, 100%); margin: auto; padding: 20px; display: flex; flex-direction: column; height: 100vh; }
+.player-topbar { border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 20px; }
+.nav-back { background: none; color: var(--muted); cursor: pointer; border: none; font-size: 12px; letter-spacing: .1em; padding: 0; }
+.nav-back:hover { color: var(--accent); }
+.player-viewport { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; margin-bottom: 24px; }
+.album-art-container { position: relative; width: 280px; height: 280px; border-radius: 16px; overflow: hidden; border: 2px solid var(--line); background: #0b111c; }
+.album-art { width: 100%; height: 100%; background: linear-gradient(135deg, #315348, #1c293a); position: relative; }
+.waveform-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8; }
+.player-info { text-align: center; }
+.player-info h1 { font-size: 14px; letter-spacing: .12em; color: var(--muted); margin: 0 0 14px; }
+.player-info strong { display: block; font-size: 28px; margin-bottom: 6px; line-height: 1.2; }
+.player-info p { margin: 0; }
+.progress-section { margin: 0 0 20px; }
+.progress-bar { height: 3px; background: #1c293a; border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
+.progress-fill { height: 100%; background: var(--accent); width: 35%; }
+.time-display { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+.controls-grid { display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 20px; }
+.control-btn { padding: 12px 18px; border: 1px solid var(--line); border-radius: 8px; background: #0b111ccc; color: var(--accent); font-size: 20px; cursor: pointer; transition: all .2s; }
+.control-btn:hover { background: #1a2433; border-color: var(--accent); }
+.control-btn.primary { background: var(--accent); color: #070b12; font-size: 24px; padding: 16px 24px; }
+.control-btn.primary:hover { opacity: 0.9; }
+.volume-control { background: #0b111caa; border: 1px solid var(--line); border-radius: 8px; padding: 14px; margin-bottom: 20px; }
+.volume-control .label { display: block; font-size: 11px; letter-spacing: .12em; color: var(--muted); margin-bottom: 8px; }
+.volume-bar { display: flex; gap: 10px; align-items: center; }
+#volume-slider { flex: 1; height: 4px; border-radius: 2px; background: #1c293a; outline: none; -webkit-appearance: none; appearance: none; }
+#volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); cursor: pointer; }
+#volume-slider::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; }
+#volume-display { font-size: 12px; color: var(--accent); min-width: 40px; }
+.queue-preview { background: #0b111caa; border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 20px; max-height: 180px; overflow-y: auto; }
+.queue-heading { display: flex; justify-content: space-between; align-items: center; font-size: 11px; letter-spacing: .12em; color: var(--muted); margin-bottom: 10px; }
+.expand-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 0; }
+.expand-btn:hover { color: var(--accent); }
+.queue-list { display: flex; flex-direction: column; gap: 8px; }
+.queue-item { display: flex; gap: 10px; padding: 8px; border-radius: 6px; border: 1px solid transparent; }
+.queue-item.next { background: #1a2433; border-color: var(--accent); }
+.queue-index { width: 20px; text-align: center; font-size: 12px; color: var(--muted); font-weight: 800; }
+.queue-meta { min-width: 0; flex: 1; }
+.queue-track { margin: 0; font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.queue-item.next .queue-track { color: var(--accent); }
+.queue-artist { margin: 2px 0 0; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.voice-control-player { display: flex; gap: 12px; align-items: center; padding: 12px; background: #0d1b1a; border: 1px solid #315348; border-radius: 8px; }
+.pulse-indicator { margin: 0; }
+#voice-status { margin: 0; font-size: 13px; color: var(--accent); }
+@media (max-width: 620px) { .album-art-container { width: 200px; height: 200px; } .player-info strong { font-size: 20px; } .controls-grid { gap: 12px; } }

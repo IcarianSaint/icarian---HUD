@@ -1,13 +1,22 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 
 const root = path.resolve(__dirname, '..');
 const port = Number(process.env.PORT || 4173);
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.svg': 'image/svg+xml' };
 
 const server = http.createServer((request, response) => {
-  const requested = request.url.split('?')[0] === '/' ? '/ui/index.html' : request.url.split('?')[0];
+  const parsed = url.parse(request.url, true);
+  let pathname = parsed.pathname;
+  let requested = pathname === '/' ? '/ui/index.html' : pathname;
+
+  // Route ?player query to player.html
+  if (parsed.query.player || pathname === '/player') {
+    requested = '/ui/player.html';
+  }
+
   const file = path.resolve(root, `.${requested}`);
   if (!file.startsWith(root) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -18,4 +27,4 @@ const server = http.createServer((request, response) => {
   fs.createReadStream(file).pipe(response);
 });
 
-server.listen(port, () => console.log(`Icarian HUD preview: http://localhost:${port}`));
+server.listen(port, () => console.log(`Icarian HUD preview: http://localhost:${port}\nPlayer: http://localhost:${port}?player`));

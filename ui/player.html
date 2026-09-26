@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070b12" />
+    <title>Icarian Audio Player</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="player.css" />
+  </head>
+  <body class="player-mode">
+    <main class="player-shell">
+      <header class="topbar player-topbar">
+        <button class="nav-back" aria-label="Back">← BACK</button>
+        <span class="connection">AUDIO ACTIVE</span>
+      </header>
+
+      <section class="player-viewport" aria-labelledby="now-playing">
+        <div class="album-art-container">
+          <div class="album-art" id="album-art"></div>
+          <canvas id="waveform" class="waveform-canvas" aria-label="Audio waveform visualization"></canvas>
+        </div>
+
+        <article class="player-info">
+          <h1 id="now-playing">Now Playing</h1>
+          <strong id="track-title">Loading Track...</strong>
+          <p id="track-artist" class="muted">Unknown Artist</p>
+          <p id="track-album" class="muted" style="font-size: 12px; margin-top: 4px;">Unknown Album</p>
+        </article>
+      </section>
+
+      <section class="progress-section">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div class="time-display">
+          <span id="current-time">0:00</span>
+          <span id="duration">3:45</span>
+        </div>
+      </section>
+
+      <section class="controls-grid">
+        <button id="btn-previous" class="control-btn" aria-label="Previous track">⏮</button>
+        <button id="btn-play-pause" class="control-btn primary" aria-label="Play">▶</button>
+        <button id="btn-next" class="control-btn" aria-label="Next track">⏭</button>
+      </section>
+
+      <section class="volume-control">
+        <span class="label">VOLUME</span>
+        <div class="volume-bar">
+          <input id="volume-slider" type="range" min="0" max="100" value="70" aria-label="Volume">
+          <span id="volume-display">70%</span>
+        </div>
+      </section>
+
+      <section class="queue-preview">
+        <div class="queue-heading">
+          <span>UP NEXT</span>
+          <button class="expand-btn" aria-label="Expand queue">⋮</button>
+        </div>
+        <div id="queue-list" class="queue-list">
+          <div class="queue-item next">
+            <span class="queue-index">1</span>
+            <div class="queue-meta">
+              <p class="queue-track">Neon Dreams</p>
+              <p class="queue-artist">Synthwave Collective</p>
+            </div>
+          </div>
+          <div class="queue-item">
+            <span class="queue-index">2</span>
+            <div class="queue-meta">
+              <p class="queue-track">Digital Horizon</p>
+              <p class="queue-artist">Chrome Wolves</p>
+            </div>
+          </div>
+          <div class="queue-item">
+            <span class="queue-index">3</span>
+            <div class="queue-meta">
+              <p class="queue-track">Phantom Protocol</p>
+              <p class="queue-artist">Echo Nexus</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="voice-control-player" aria-label="Voice commands">
+        <div class="pulse-indicator"><span class="pulse"></span></div>
+        <p id="voice-status">Say: "play", "pause", "next", "volume up"</p>
+      </section>
+    </main>
+    <script src="player.js"></script>
+  </body>
+</html>
