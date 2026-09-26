@@ -1,19 +1,28 @@
-# Mentra integration notes
+# Mentra runtime integration status
 
-This file records platform assumptions separately from the app logic.
+The repository now has a guarded `MentraAudioProvider` adapter in `src/mentra-audio-provider.ts`.
 
-## Confirmed in this repository
+It intentionally accepts an unknown runtime audio manager and checks capabilities at runtime rather than claiming SDK methods that have not been verified from the installed package. Supported capability names are currently treated as optional:
 
-- The app has a Mentra-style manifest and TypeScript entry point.
-- Dashboard and player rendering are plain TypeScript and can be tested without hardware.
-- Voice commands are normalized into a small set of app actions.
+- `playUrl(url)`
+- `pause()`
+- `resume()`
+- `stop()`
+- `setVolume(value)`
 
-## Must be verified against the installed SDK
+The adapter does not fabricate track URLs, seek behavior, or phone media-session integration. Add a real URL/provider mapping before calling `play()`. If the installed Mentra SDK uses different names or event payloads, update only this adapter after inspecting the package's `.d.ts` files.
 
-- The exact generic types for `AppServer.onSession`.
-- The supported session voice callback name and payload shape.
-- Whether the target runtime supports `session.layouts.showTextWall` updates for this miniapp type.
-- Whether Mentra exposes app-owned audio playback, phone media controls, or neither.
-- The correct build and packaging command for the installed CLI.
+## Verification steps
 
-Do not treat the browser player as proof that audio is routed through the glasses. The `src/audio-provider.ts` contract is the deliberate seam for adding a verified host implementation later.
+```bash
+npm install
+npm run build
+```
+
+Then inspect the installed SDK:
+
+```bash
+grep -R "class AudioManager\|playUrl\|showTextWall" node_modules/@mentra -n
+```
+
+Use the exact installed signatures when wiring the session in `src/index.ts`. The browser preview remains a simulation and cannot verify audio routing to the glasses.
