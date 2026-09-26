@@ -1,45 +1,44 @@
 {
   "$schema": "./node_modules/@mentra/miniapp-cli/schema/miniapp.schema.json",
-  "description": "Always-on tactical HUD for Even Realities G1: dashboard, voice assistant, notifications, navigation.",
+  "name": "Icarian HUD",
+  "description": "Tactical HUD + Live Media Player for Mentra AI Glasses. Dashboard, voice assistant, notifications, navigation, and audio playback.",
+  "version": "1.0.1",
+  "packageName": "com.icarian.hud.mentra",
+  "sdkVersion": "3.1.1",
+  "minHostVersion": "1.42.0",
+  "type": "standard",
   "entry": {
-    "background": "background/index.js",
-    "ui": "ui/index.html"
+    "index": "src/index.ts"
   },
+  "icon": "icon.png",
   "hardwareRequirements": [
     {
-      "description": "Text display on the glasses",
+      "type": "DISPLAY",
       "level": "REQUIRED",
-      "type": "DISPLAY"
+      "description": "Display for HUD cards and player UI"
     },
     {
-      "description": "Voice input",
+      "type": "MICROPHONE",
       "level": "REQUIRED",
-      "type": "MICROPHONE"
+      "description": "Voice input for commands"
     }
   ],
-  "icon": "icon.png",
-  "minHostVersion": "1.42.0",
-  "name": "Icarian HUD",
-  "packageName": "com.icarian.hud",
   "permissions": [
     {
-      "description": "Voice commands — say \"Icarian\" and talk",
-      "type": "MICROPHONE"
+      "type": "MICROPHONE",
+      "description": "Voice commands — say 'Icarian' then speak"
     },
     {
-      "description": "Mirror phone notifications to the glasses",
-      "type": "READ_NOTIFICATIONS"
+      "type": "READ_NOTIFICATIONS",
+      "description": "Mirror phone notifications to the glasses"
     },
     {
-      "description": "Show your next calendar event on the dashboard",
-      "type": "CALENDAR"
+      "type": "CALENDAR",
+      "description": "Show your next calendar event on the dashboard"
     },
     {
-      "description": "Weather and turn-by-turn navigation",
-      "type": "LOCATION"
+      "type": "LOCATION",
+      "description": "Weather and turn-by-turn navigation"
     }
-  ],
-  "sdkVersion": "3.1.1",
-  "type": "standard",
-  "version": "1.0.1"
+  ]
 }

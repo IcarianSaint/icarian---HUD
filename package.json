@@ -1,12 +1,21 @@
 {
-  "name": "icarian-hud",
+  "name": "icarian-hud-mentra",
   "version": "1.0.1",
   "private": true,
-  "description": "Local preview and development scaffold for Icarian HUD.",
+  "description": "Tactical HUD + Live Media Player for Mentra AI Glasses",
   "scripts": {
-    "start": "node scripts/serve.js",
-    "dev": "node scripts/serve.js",
-    "check": "node --check background/index.js && node --check scripts/serve.js"
+    "start": "mentra dev",
+    "dev": "mentra dev",
+    "build": "mentra build",
+    "check": "node --check src/index.ts src/player.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@mentra/sdk": "^3.1.0"
+  },
+  "devDependencies": {
+    "@mentra/miniapp-cli": "^3.1.0",
+    "typescript": "^5.0.0"
   },
   "engines": {
     "node": ">=18"
