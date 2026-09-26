@@ -1,0 +1,1 @@
+{"$schema": "./node_modules/@mentra/miniapp-cli/schema/miniapp.schema.json", "description": "Storage boot diagnostic (v2)", "entry": {"background": "background/index.js", "ui": "ui/index.html"}, "icon": "icon.png", "name": "Icarian Diag2", "packageName": "com.icarian.diag2", "permissions": [], "sdkVersion": "3.1.1", "type": "standard", "version": "1.0.0"}
