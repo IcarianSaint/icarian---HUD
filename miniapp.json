@@ -1,44 +1,20 @@
 {
-  "$schema": "./node_modules/@mentra/miniapp-cli/schema/miniapp.schema.json",
   "name": "Icarian HUD",
-  "description": "Tactical HUD + Live Media Player for Mentra AI Glasses. Dashboard, voice assistant, notifications, navigation, and audio playback.",
+  "packageName": "com.icarian.hud",
   "version": "1.0.1",
-  "packageName": "com.icarian.hud.mentra",
   "sdkVersion": "3.1.1",
   "minHostVersion": "1.42.0",
   "type": "standard",
   "entry": {
-    "index": "src/index.ts"
+    "background": "background/index.js",
+    "ui": "ui/index.html"
   },
   "icon": "icon.png",
-  "hardwareRequirements": [
-    {
-      "type": "DISPLAY",
-      "level": "REQUIRED",
-      "description": "Display for HUD cards and player UI"
-    },
-    {
-      "type": "MICROPHONE",
-      "level": "REQUIRED",
-      "description": "Voice input for commands"
-    }
-  ],
+  "hardware": ["DISPLAY", "MICROPHONE"],
   "permissions": [
-    {
-      "type": "MICROPHONE",
-      "description": "Voice commands — say 'Icarian' then speak"
-    },
-    {
-      "type": "READ_NOTIFICATIONS",
-      "description": "Mirror phone notifications to the glasses"
-    },
-    {
-      "type": "CALENDAR",
-      "description": "Show your next calendar event on the dashboard"
-    },
-    {
-      "type": "LOCATION",
-      "description": "Weather and turn-by-turn navigation"
-    }
+    "MICROPHONE",
+    "READ_NOTIFICATIONS",
+    "CALENDAR",
+    "LOCATION"
   ]
 }
