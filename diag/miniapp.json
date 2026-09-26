@@ -1,0 +1,1 @@
+{"$schema":"./node_modules/@mentra/miniapp-cli/schema/miniapp.schema.json","description":"Minimal boot diagnostic","entry":{"background":"background/index.js","ui":"ui/index.html"},"icon":"icon.png","name":"Icarian Diag","packageName":"com.icarian.diag","permissions":[],"sdkVersion":"3.1.1","type":"standard","version":"1.0.0"}
