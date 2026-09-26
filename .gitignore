@@ -1,5 +1,9 @@
 node_modules/
+dist/
+bundle.zip
 .DS_Store
-*.log
+*.swp
+*.swo
+*~
+.env.local
 .env
-.vscode/
