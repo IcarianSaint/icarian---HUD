@@ -1,0 +1,1 @@
+{"$schema": "./node_modules/@mentra/miniapp-cli/schema/miniapp.schema.json", "description": "Real React UI + minimal background", "entry": {"background": "background/index.js", "ui": "ui/index.html"}, "icon": "icon.png", "name": "Icarian Diag3", "packageName": "com.icarian.diag3", "permissions": [], "sdkVersion": "3.1.1", "type": "standard", "version": "1.0.0"}
